@@ -9,6 +9,9 @@ public class WebPage {
     By input_pwd = By.name("password");
     By btn_login = By.xpath("//button[@type = 'submit']");
     By input_serach_sidebar = By.xpath("//input[@placeholder = \"Search\"]");
+    By err_msg(String errmsg) {
+        return By.xpath("//*[contains(text(),' " + errmsg + "')]");
+    }
     By setSideMenu(String navmenu){
         return By.xpath("//span[text()='"+navmenu+"']");
     }
@@ -36,5 +39,14 @@ public class WebPage {
     public void inputSideNav(String navmenu){
         driver.findElement(input_serach_sidebar).sendKeys(navmenu);
     }
+
+//    public void inputInvalid(String navmenus){
+//        driver.findElement(By.xpath("//div[@role='alert', '" + navmenus + "')]")).isDisplayed();
+    public void verifyErrMsg(String errMsg) {
+        driver.findElement(err_msg(errMsg)).isDisplayed();
+    }
+
 }
+
+
 

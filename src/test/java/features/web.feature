@@ -15,3 +15,11 @@ Feature: Test Automation Rest API
     And user input pwd "admin123"
     And user click button login
     And user search sidenav "Buzz"
+
+  @web
+  Scenario: Test web login negative
+    Given user go to login page
+    And user input username "Admins"
+    And user input pwd "admin1234"
+    And user click button login
+#    Then validation input invalid "Invalid credentials"

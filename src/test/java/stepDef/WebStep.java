@@ -41,4 +41,9 @@ public class WebStep {
     public void userSearchSidenav(String navmenu) {
         webPage.inputSideNav(navmenu);
     }
+
+    @Then("validation input invalid {string}")
+    public void validationInputInvalid(String navmenus) {
+        webPage.verifyErrMsg(navmenus);
+    }
 }
